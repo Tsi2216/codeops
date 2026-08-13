@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">Habesha Eatery serves authentic Ethiopian flavors, fresh inje
+    <meta name="description" content="ra, and warm hospitality in a welcoming dining experience.">
+    <title>Habesha Eatery | Reserve a Table</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo"><strong>Habesha Eatery</strong></div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reservation">Reserve</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" id="home">
+        <h1>Authentic Ethiopian Dining</h1>
+        <img
+            src="./assets/habesha-hero.jpg"
+            alt="A warm plate of traditional Ethiopian food served on injera with colorful side dishes"
+            loading="lazy"
+            width="1200"
+            height="700">
+
+        <section id="reservation" aria-labelledby="reservation-title">
+            <h2 id="reservation-title">Reserve Your Table</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div>
+                    <label for="tel">Telephone</label>
+                    <input
+                        type="tel"
+                        id="tel"
+                        name="tel"
+                        pattern="09[0-9]{8}"
+                        placeholder="09xxxxxxxx"
+                        required>
+                </div>
+
+                <div>
+                    <label for="guests">Guests</label>
+                    <input
+                        type="number"
+                        id="guests"
+                        name="guests"
+                        min="1"
+                        max="20"
+                        required>
+                </div>
+
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="submit">Reserve</button>
+            </form>
+        </section>
+
+        <section id="menu" aria-labelledby="menu-title">
+            <h2 id="menu-title">Our Menu</h2>
+            <table>
+                <caption>Habesha Eatery Menu Prices in ETB</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Dish</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price (ETB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Doro Wat</th>
+                        <td>Chicken stew with onions, garlic, and berbere</td>
+                        <td>320</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tibs</th>
+                        <td>Pan-fried beef cubes with peppers and spices</td>
+                        <td>360</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Veggie Platter</th>
+                        <td>Assorted lentils, cabbage, and potatoes served with injera</td>
+                        <td>280</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="location" aria-labelledby="location-title">
+            <h2 id="location-title">Visit Us</h2>
+            <iframe
+                title="Google Map showing the location of Habesha Eatery"
+                src="https://www.google.com/maps?q=Addis%20Ababa&output=embed"
+                width="100%"
+                height="350"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+        </section>
+    </main>
+</body>
+</html>
