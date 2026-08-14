@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 Practice</title>
+    <meta name="description" content="Day 12 HTML accessibility practice exercises.">
+</head>
+<body>
+
+    <h1>Day 12 Practice</h1>
+
+    <!-- Exercise 1: POST is used because form data should be sent securely
+         and not displayed in the URL. -->
+    <h2>Ethio Telecom Registration</h2>
+
+    <form action="/register" method="post">
+
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <br><br>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <br><br>
+
+        <label for="phone">Phone</label>
+        <input
+            id="phone"
+            name="phone"
+            type="tel"
+            pattern="\+251[0-9]{9}"
+            placeholder="+251912345678"
+            required
+        >
+
+        <br><br>
+
+        <label for="branch">Branch</label>
+        <select id="branch" name="branch" required>
+            <option value="">Select a branch</option>
+            <option value="bole">Bole</option>
+            <option value="kazanchis">Kazanchis</option>
+            <option value="piassa">Piassa</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+
+    <!-- Exercise 2: Ethiopian Airlines Flight Table -->
+
+    <h2>Ethiopian Airlines Flights</h2>
+
+    <table>
+        <caption>Ethiopian Airlines Flight Schedule</caption>
+
+        <thead>
+            <tr>
+                <th scope="col">Flight</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Departs</th>
+                <th scope="col">Price ETB</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>ET101</td>
+                <td>Addis Ababa</td>
+                <td>Nairobi</td>
+                <td>08:00</td>
+                <td>12000</td>
+            </tr>
+            <tr>
+                <td>ET102</td>
+                <td>Addis Ababa</td>
+                <td>Dubai</td>
+                <td>10:30</td>
+                <td>25000</td>
+            </tr>
+            <tr>
+                <td>ET103</td>
+                <td>Addis Ababa</td>
+                <td>Kigali</td>
+                <td>12:00</td>
+                <td>15000</td>
+            </tr>
+            <tr>
+                <td>ET104</td>
+                <td>Addis Ababa</td>
+                <td>Cairo</td>
+                <td>14:30</td>
+                <td>18000</td>
+            </tr>
+            <tr>
+                <td>ET105</td>
+                <td>Addis Ababa</td>
+                <td>London</td>
+                <td>22:00</td>
+                <td>40000</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Exercise 3: Media Block -->
+
+    <h2>Ethiopian Dish</h2>
+
+    <figure>
+        <img
+            src="https://via.placeholder.com/400"
+            alt="Traditional Ethiopian injera served with different stews"
+        >
+        <figcaption>Traditional Ethiopian food served with injera.</figcaption>
+    </figure>
+
+    <h2>Location Map</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Bole%20Addis%20Ababa&output=embed"
+        title="Map showing Bole, Addis Ababa"
+        width="600"
+        height="450">
+    </iframe>
+
+
+    <!-- Exercise 4: Accessibility fixes -->
+
+    <h2>Accessible Elements</h2>
+
+    <!-- A button gives keyboard and screen-reader users a real button. -->
+    <button type="button">Click Me</button>
+
+    <br><br>
+
+    <!-- A label tells screen-reader users what the input is for. -->
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text">
+
+    <br><br>
+
+    <!-- Alt text describes the image to screen-reader users. -->
+    <img
+        src="https://via.placeholder.com/200"
+        alt="Ethiopian landscape"
+    >
+
+</body>
+</html>

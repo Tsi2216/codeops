@@ -1,0 +1,13 @@
+1. Submitting the form does not reload the page.
+
+2. Names shorter than two characters are rejected.
+
+3. Phone numbers must match the Ethiopian mobile pattern:
+   09... or +2519...
+
+4. The first validation error is displayed clearly in the error area.
+
+5. Valid signup data is saved to localStorage as JSON.
+
+6. On page refresh, saved users are restored and the current
+   number of signed-up users is displayed.
