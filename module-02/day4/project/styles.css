@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+    min-height: 100vh;
+}
+
+
+/* Header + Flexbox */
+
+.header {
+    grid-area: header;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 25px;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar button {
+    padding: 8px 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    grid-area: sidebar;
+
+    padding: 25px;
+    background: #ffffff;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+
+/* Main */
+
+.main {
+    grid-area: main;
+    padding: 30px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+
+/* Responsive card grid */
+
+.stats {
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Service cards */
+
+.services {
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.service-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.service-card button {
+    margin-top: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+/* Absolute badge */
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    padding: 4px 8px;
+    border-radius: 5px;
+
+    background: gold;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+
+/* Footer */
+
+.footer {
+    grid-area: footer;
+
+    padding: 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .app {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 Exercises</title>
+
+    <style>
+        /* Exercise 1 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #333;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar a,
+        .navbar button {
+            color: white;
+        }
+
+        /* Exercise 2 */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            min-width: 200px;
+        }
+
+        /* Exercise 3 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* Exercise 4 */
+        .page {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+        }
+
+        .page-header {
+            grid-area: header;
+            padding: 20px;
+            background: #ddd;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            padding: 20px;
+            background: #eee;
+        }
+
+        .main {
+            grid-area: main;
+            padding: 20px;
+        }
+
+        .footer {
+            grid-area: footer;
+            padding: 20px;
+            background: #ddd;
+        }
+
+        /* Exercise 5 */
+        .product {
+            position: relative;
+            width: 250px;
+            padding: 30px;
+            border: 1px solid #ccc;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: gold;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Day 14 Exercises</h1>
+
+    <!-- Exercise 1 -->
+    <h2>1. Flexbox Navbar</h2>
+
+    <nav class="navbar">
+        <strong>Habesha Market</strong>
+
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+            <button type="button">Login</button>
+        </div>
+    </nav>
+
+
+    <!-- Exercise 2 -->
+    <h2>2. Flexible Cards</h2>
+
+    <div class="cards">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+    </div>
+
+
+    <!-- Exercise 3 -->
+    <h2>3. Photo Gallery</h2>
+
+    <div class="gallery">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 1">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 2">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 3">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 4">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 5">
+        <img src="https://via.placeholder.com/300" alt="Gallery image 6">
+    </div>
+
+
+    <!-- Exercise 4 -->
+    <h2>4. Grid Page Layout</h2>
+
+    <div class="page">
+        <header class="page-header">
+            Header
+        </header>
+
+        <aside class="sidebar">
+            Sidebar
+        </aside>
+
+        <main class="main">
+            Main Content
+        </main>
+
+        <footer class="footer">
+            Footer
+        </footer>
+    </div>
+
+
+    <!-- Exercise 5 -->
+    <h2>5. Product Sale Badge</h2>
+
+    <div class="product">
+        <span class="sale-badge">ETB Sale</span>
+
+        <h3>Ethiopian Coffee</h3>
+        <p>Premium Ethiopian coffee.</p>
+        <p>500 ETB</p>
+    </div>
+
+</body>
+</html>
