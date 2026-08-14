@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 Exercises</title>
+
+    <style>
+        /* Exercise 1 */
+        :root {
+            --primary: #006400;
+            --secondary: #d4af37;
+            --spacing: 16px;
+            --font-stack: Arial, sans-serif;
+        }
+
+        .button {
+            color: var(--secondary);
+            background: var(--primary);
+            padding: var(--spacing);
+            font-family: var(--font-stack);
+        }
+
+        /* Exercise 2 */
+        .content-box {
+            width: 300px;
+            padding: 24px;
+            border: 2px solid black;
+            box-sizing: content-box;
+        }
+
+        .border-box {
+            width: 300px;
+            padding: 24px;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        /* Exercise 3 */
+        p {
+            color: blue;
+        }
+
+        .text {
+            color: green;
+        }
+
+        #special {
+            color: red;
+        }
+
+        /* Exercise 4 */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Day 13 Exercises</h1>
+
+    <!-- Exercise 1 -->
+    <h2>1. CSS Variables Button</h2>
+    <button class="button">Click Me</button>
+
+
+    <!-- Exercise 2 -->
+    <h2>2. Box Model</h2>
+
+    <h3>Content-box</h3>
+    <div class="content-box">
+        Width = 300px + 48px padding + 4px border = 352px
+    </div>
+
+    <h3>Border-box</h3>
+    <div class="border-box">
+        Rendered width = exactly 300px
+    </div>
+
+
+    <!-- Exercise 3 -->
+    <h2>3. Specificity</h2>
+
+    <p class="text" id="special">
+        The ID rule wins because it has the highest specificity.
+    </p>
+
+    <p>
+        Specificity:
+        Element = 0-0-0-1,
+        Class = 0-0-1-0,
+        ID = 0-1-0-0.
+    </p>
+
+
+    <!-- Exercise 4 -->
+    <h2>4. Ethiopian Airlines Schedule</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Flight</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departs</th>
+                <th>Price ETB</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>ET101</td>
+                <td>Addis Ababa</td>
+                <td>Nairobi</td>
+                <td>08:00</td>
+                <td>12000</td>
+            </tr>
+            <tr>
+                <td>ET102</td>
+                <td>Addis Ababa</td>
+                <td>Dubai</td>
+                <td>10:30</td>
+                <td>25000</td>
+            </tr>
+            <tr>
+                <td>ET103</td>
+                <td>Addis Ababa</td>
+                <td>Kigali</td>
+                <td>12:00</td>
+                <td>15000</td>
+            </tr>
+            <tr>
+                <td>ET104</td>
+                <td>Addis Ababa</td>
+                <td>Cairo</td>
+                <td>14:30</td>
+                <td>18000</td>
+            </tr>
+            <tr>
+                <td>ET105</td>
+                <td>Addis Ababa</td>
+                <td>London</td>
+                <td>22:00</td>
+                <td>40000</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Exercise 5 -->
+    <h2>5. Color Conversion</h2>
+
+    <p>Original palette:</p>
+    <ul>
+        <li>#006400</li>
+        <li>#D4AF37</li>
+        <li>#333333</li>
+    </ul>
+
+    <p>RGB:</p>
+    <ul>
+        <li>rgb(0, 100, 0)</li>
+        <li>rgb(212, 175, 55)</li>
+        <li>rgb(51, 51, 51)</li>
+    </ul>
+
+    <p>HSL:</p>
+    <ul>
+        <li>hsl(120, 100%, 20%) → lighter: hsl(120, 100%, 30%)</li>
+        <li>hsl(46, 65%, 52%) → lighter: hsl(46, 65%, 62%)</li>
+        <li>hsl(0, 0%, 20%) → lighter: hsl(0, 0%, 30%)</li>
+    </ul>
+
+</body>
+</html>
