@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addis Market</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main>
+    <h1 id="title">Addis Market</h1>
+
+    <!-- Exercise 1 -->
+    <button id="change-title">Change Title</button>
+
+    <!-- Exercise 2 -->
+    <h2>Ethiopian Cities</h2>
+    <ul id="cities"></ul>
+
+    <!-- Exercise 3 -->
+    <div id="button-container">
+      <button id="event-button">Click Me</button>
+    </div>
+
+    <!-- Exercise 4 -->
+    <h2>Delete List</h2>
+    <ul id="delete-list">
+      <li>Teff <button class="delete">Delete</button></li>
+      <li>Coffee <button class="delete">Delete</button></li>
+      <li>Shiro <button class="delete">Delete</button></li>
+    </ul>
+
+    <!-- Exercise 5 + Week-2 Project -->
+    <h2>Shopping List</h2>
+
+    <form id="add-form">
+      <input
+        id="name"
+        type="text"
+        placeholder="Item name"
+      >
+
+      <input
+        id="price"
+        type="number"
+        placeholder="Price in ETB"
+        min="0"
+      >
+
+      <button type="submit">Add Item</button>
+    </form>
+
+    <ul id="list"></ul>
+
+    <p id="total">Total: 0 ETB</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
