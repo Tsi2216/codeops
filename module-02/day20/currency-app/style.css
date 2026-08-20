@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 30px;
+  background: #f4f4f4;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#status {
+  margin-bottom: 20px;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#watchlist {
+  padding: 0;
+  list-style: none;
+}
+
+#watchlist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.remove-button {
+  cursor: pointer;
+}
