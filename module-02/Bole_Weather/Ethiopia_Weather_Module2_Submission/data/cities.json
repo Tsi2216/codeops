@@ -1,0 +1,10 @@
+[
+  { "name": "Addis Ababa", "lat": 9.03, "lon": 38.74 },
+  { "name": "Adama", "lat": 8.54, "lon": 39.27 },
+  { "name": "Hawassa", "lat": 7.05, "lon": 38.49 },
+  { "name": "Bahir Dar", "lat": 11.59, "lon": 37.39 },
+  { "name": "Dire Dawa", "lat": 9.59, "lon": 41.86 },
+  { "name": "Mekelle", "lat": 13.49, "lon": 39.47 },
+  { "name": "Gondar", "lat": 12.60, "lon": 37.46 },
+  { "name": "Jimma", "lat": 7.68, "lon": 36.84 }
+]
