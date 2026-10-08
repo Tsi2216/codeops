@@ -1,16 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useCart } from "../app/providers";
+import { placeOrder } from "../app/actions";
 import { validate } from "../lib/validate";
 
-function simulateCheckoutRequest() {
-  return new Promise((_, reject) => {
-    setTimeout(() => {
-      reject({ field: "phone", reason: "TeleBirr payment could not be confirmed." });
-    }, 700);
-  });
-}
+const initialState = {
+  fieldErrors: {},
+  error: ""
+};
 
 export default function CheckoutForm() {
   const { cart } = useCart();
@@ -21,8 +19,7 @@ export default function CheckoutForm() {
     notes: ""
   });
   const [touched, setTouched] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const [failure, setFailure] = useState("");
+  const [state, formAction, pending] = useActionState(placeOrder, initialState);
   const fieldRefs = useRef({});
 
   const errors = validate(form);
@@ -34,7 +31,6 @@ export default function CheckoutForm() {
   function handleChange(event) {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
-    setFailure("");
   }
 
   function handleBlur(event) {
@@ -46,39 +42,24 @@ export default function CheckoutForm() {
     return touched[field] && errors[field];
   }
 
-  function focusField(field) {
-    fieldRefs.current[field]?.focus();
-  }
+  useEffect(() => {
+    const firstBadField = Object.keys(state.fieldErrors || {})[0];
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setTouched({ name: true, phone: true, area: true, notes: true });
-    setFailure("");
-
-    const currentErrors = validate(form);
-    const firstInvalid = ["name", "phone", "area", "notes"].find((field) => currentErrors[field]);
-
-    if (firstInvalid) {
-      focusField(firstInvalid);
-      return;
+    if (firstBadField) {
+      fieldRefs.current[firstBadField]?.focus();
+      setTouched((current) => ({ ...current, [firstBadField]: true }));
     }
-
-    setSubmitting(true);
-
-    try {
-      await simulateCheckoutRequest();
-    } catch (error) {
-      setFailure(error.reason || "The checkout request failed.");
-      setTouched((current) => ({ ...current, [error.field]: true }));
-      focusField(error.field);
-    } finally {
-      setSubmitting(false);
-    }
-  }
+  }, [state]);
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      {failure && <p className="failure" role="alert">{failure}</p>}
+    <form action={formAction} onBlur={handleBlur} noValidate>
+      {state.error && (
+        <p className="failure" role="alert">
+          {state.error}
+        </p>
+      )}
+
+      <input type="hidden" name="total" value={total} />
 
       <div className="field">
         <label htmlFor="name">Name</label>
@@ -88,11 +69,12 @@ export default function CheckoutForm() {
           name="name"
           value={form.name}
           onChange={handleChange}
-          onBlur={handleBlur}
           aria-invalid={!!show("name")}
           aria-describedby={show("name") ? "name-error" : undefined}
         />
-        {show("name") && <p id="name-error" role="alert">{errors.name}</p>}
+        {show("name") && (
+          <p id="name-error" role="alert">{errors.name}</p>
+        )}
       </div>
 
       <div className="field">
@@ -103,11 +85,12 @@ export default function CheckoutForm() {
           name="phone"
           value={form.phone}
           onChange={handleChange}
-          onBlur={handleBlur}
           aria-invalid={!!show("phone")}
           aria-describedby={show("phone") ? "phone-error" : undefined}
         />
-        {show("phone") && <p id="phone-error" role="alert">{errors.phone}</p>}
+        {show("phone") && (
+          <p id="phone-error" role="alert">{errors.phone}</p>
+        )}
       </div>
 
       <div className="field">
@@ -118,7 +101,6 @@ export default function CheckoutForm() {
           name="area"
           value={form.area}
           onChange={handleChange}
-          onBlur={handleBlur}
           aria-invalid={!!show("area")}
           aria-describedby={show("area") ? "area-error" : undefined}
         >
@@ -127,7 +109,9 @@ export default function CheckoutForm() {
           <option value="Megenagna">Megenagna</option>
           <option value="Piassa">Piassa</option>
         </select>
-        {show("area") && <p id="area-error" role="alert">{errors.area}</p>}
+        {show("area") && (
+          <p id="area-error" role="alert">{errors.area}</p>
+        )}
       </div>
 
       <div className="field">
@@ -138,15 +122,19 @@ export default function CheckoutForm() {
           name="notes"
           value={form.notes}
           onChange={handleChange}
-          onBlur={handleBlur}
           aria-invalid={!!show("notes")}
           aria-describedby={show("notes") ? "notes-error" : undefined}
         />
-        {show("notes") && errors.notes && <p id="notes-error" role="alert">{errors.notes}</p>}
       </div>
 
-      <button type="submit" disabled={submitting}>
-        {submitting ? `Submitting ${total} ETB...` : `Place Order — ${total} ETB`}
+      {Object.entries(state.fieldErrors || {}).map(([field, messages]) => (
+        <p key={field} role="alert">
+          {messages?.[0]}
+        </p>
+      ))}
+
+      <button type="submit" disabled={pending}>
+        {pending ? `Sending…` : `Place Order — ${total} ETB`}
       </button>
     </form>
   );
