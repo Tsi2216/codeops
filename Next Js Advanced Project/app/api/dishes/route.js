@@ -1,0 +1,2 @@
+import { getDishes } from "../../../lib/data";
+export async function GET(request) { const { searchParams } = new URL(request.url); const q = (searchParams.get("q") || "").trim().toLowerCase(); const dishes = await getDishes(); const filtered = q ? dishes.filter(d => `${d.name} ${d.category}`.toLowerCase().includes(q)) : dishes; return Response.json({ dishes: filtered, updatedAt: new Date().toISOString() }, { headers: { "Cache-Control": "no-store" } }); }

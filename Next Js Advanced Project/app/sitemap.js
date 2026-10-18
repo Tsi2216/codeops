@@ -1,0 +1,1 @@
+export default function sitemap() { const base = process.env.NEXT_PUBLIC_SITE_URL || "https://addis-eats.example.com"; return ["", "/menu"].map(path => ({ url: `${base}${path}`, lastModified: new Date(), changeFrequency: "weekly", priority: path ? 0.8 : 1 })); }
